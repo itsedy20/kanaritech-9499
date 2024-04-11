@@ -34,7 +34,7 @@ public class RobotContainer {
     // Configure the trigger bindings
     configureBindings();
 
-    drive.setDefaultCommand(drive.ArcadeCommand());
+    drive.setDefaultCommand(drive.arcadeCommand());
 
   }
 

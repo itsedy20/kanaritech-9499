@@ -47,25 +47,15 @@ public class powertrain extends SubsystemBase {
 
   }
 
-  public void powertrainoff(boolean coast){
-
-    if(coast == true){
-  right1.setIdleMode(IdleMode.kCoast);
-  right2.setIdleMode(IdleMode.kCoast);
-  left1.setIdleMode(IdleMode.kCoast);
-  left2.setIdleMode(IdleMode.kCoast);
-  }
-  else{
-  right1.setIdleMode(IdleMode.kBrake);
-  right2.setIdleMode(IdleMode.kBrake);
-  left1.setIdleMode(IdleMode.kBrake);
-  left2.setIdleMode(IdleMode.kBrake);
-  }
-  }
   
-  public Command ArcadeCommand(){
+  
+  public void arcadedrive(double speed, double turn){
+    arcade.arcadeDrive(speed, turn);
+  }
+
+  public Command arcadeCommand(){
     return run(()->{
-    arcade.arcadeDrive(RobotContainer.controller1.getRightTriggerAxis() - RobotContainer.controller1.getLeftTriggerAxis(), 
+    arcadedrive(RobotContainer.controller1.getRightTriggerAxis() - RobotContainer.controller1.getLeftTriggerAxis(), 
     RobotContainer.controller1.getRightX());
     
     });
